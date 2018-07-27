@@ -175,3 +175,28 @@ ActionView::MissingTemplate (Missing template posts/create, application/create w
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (48.1ms)
+
+
+Started GET "/posts/new" for 73.254.230.154 at 2018-07-27 20:31:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 275ms (Views: 256.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 73.254.230.154 at 2018-07-27 20:31:15 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TUIGk0YRY2gvwTTWltSW+poAcrNG8LtvRwA4LJbEgAiHFYCinAAaiUh24t7qSCzv4m+waDLGH+os7WYwq4bcSA==", "title"=>"Dillorom Abdulloeva - Sinatra project video walkthrough", "description"=>"asdfasfdf", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Dillorom Abdulloeva - Sinatra project video walkthrough"], ["description", "asdfasfdf"], ["created_at", "2018-07-27 20:31:15.890953"], ["updated_at", "2018-07-27 20:31:15.890953"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+Redirected to http://165.227.31.156:37454/posts/3
+Completed 302 Found in 11ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/posts/3" for 73.254.230.154 at 2018-07-27 20:31:15 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 34ms (Views: 18.3ms | ActiveRecord: 0.3ms)
